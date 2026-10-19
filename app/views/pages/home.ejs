@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<% 
+
+    let erroValidacao = {"email":"", "nome":"", "telefone":""};
+    let msgErro = {"email":"", "nome":"", "telefone":""};
+    if(erros) {
+        erros.errors.forEach(function(erro){
+    if (erro.path == "email"){
+        erroValidacao.email = "erro",
+        msgErro.email = erro.msg
+    }if (erro.path == "nome"){
+        erroValidacao.nome = "erro",
+        msgErro.nome = erro.msg
+    }if (erro.path == "telefone"){
+        erroValidacao.telefone = "erro",
+        msgErro.telefone = erro.msg
+    }
+})
+}
+
+%>
+    <form action="/resultado", method="post">
+        
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" placeholder="Nome">
+        <span><%= msgErro.nome %></span>
+
+        <label for="email">Email</label>
+        <input type="text" name="email" placeholder="Email">
+        <span><%= msgErro.email %></span>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" placeholder="Telefone">
+        <span><%= msgErro.telefone %></span>
+        
+        <label for="assunto">Assunto</label>
+        <input type="text" name="assunto" id="Assunto" placeholder="Assunto">
+
+        <label for="mensagem">Mensagem</label>
+        <input type="text" name="mensagem" id="Mensagem" placeholder="Mensagem">
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
